@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Do You Love Me?</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f7f7;
+      text-align: center;
+      padding-top: 50px;
+    }
+    #question {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    #buttons-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      margin: 0 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Do You Love Me for the Rest of Your Life?</h1>
+  <p id="question">Click "Yes" if you do!</p>
+  <div id="buttons-container">
+    <button id="yesBtn" onclick="checkLove('yes')">Yes</button>
+    <button id="noBtn" onclick="checkLove('no')">No</button>
+  </div>
+
+  <script>
+    let loveCounter = 0;
+
+    function checkLove(answer) {
+      if (answer === 'yes') {
+        loveCounter++;
+        if (loveCounter >= 9) {
+          window.location.href = "happy_monthsary.html"; // Redirect to Happy 8th Monthsary page
+        } else {
+          moveButtonsRandomly();
+          growNoButton();
+        }
+      } else {
+        alert("Oh no! Let's try again!");
+      }
+    }
+
+    function moveButtonsRandomly() {
+      const containerWidth = window.innerWidth - 1500; // Adjust for button width
+      const containerHeight = window.innerHeight - 900; // Adjust for button height
+      const yesBtn = document.getElementById('yesBtn');
+      const noBtn = document.getElementById('noBtn');
+
+      const randomX1 = Math.floor(Math.random() * containerWidth);
+      const randomY1 = Math.floor(Math.random() * containerHeight);
+      const randomX2 = Math.floor(Math.random() * containerWidth);
+      const randomY2 = Math.floor(Math.random() * containerHeight);
+
+      yesBtn.style.position = 'absolute';
+      yesBtn.style.left = randomX1 + 'px';
+      yesBtn.style.top = randomY1 + 'px';
+
+      noBtn.style.position = 'absolute';
+      noBtn.style.left = randomX2 + 'px';
+      noBtn.style.top = randomY2 + 'px';
+    }
+
+    function growNoButton() {
+      const noBtn = document.getElementById('noBtn');
+      const currentFontSize = parseInt(window.getComputedStyle(noBtn).fontSize);
+      noBtn.style.fontSize = (currentFontSize + 2) + 'px'; // Increase font size by 2px
+    }
+  </script>
+</body>
+</html>

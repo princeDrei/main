@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Answer the Questions</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f7f7;
+      text-align: center;
+      padding-top: 50px;
+    }
+    #question {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    #buttons-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      margin: 0 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Answer the Questions</h1>
+  <p id="question">Do you love me for the rest of your life?</p>
+  <div id="buttons-container">
+    <button onclick="checkAnswer('yes')">Yes</button>
+    <button onclick="checkAnswer('no')">No</button>
+  </div>
+
+  <script>
+    let questionIndex = 0;
+    let yesCounter = 0;
+
+    const questions = [
+      "Do you love me for the rest of your life?",
+      "Will you always be by my side?",
+      "Can we grow old together?",
+      "Will you support me through thick and thin?",
+      "Can we make our dreams come true together?",
+      "Will you be my rock in tough times?",
+      "Can we create a lifetime of memories together?",
+      "Will you cherish me forever?",
+      "Can you promise to love me unconditionally?"
+    ];
+
+    function checkAnswer(answer) {
+      if (answer === 'yes') {
+        yesCounter++;
+      }
+
+      questionIndex++;
+
+      if (questionIndex < questions.length) {
+        displayQuestion(questionIndex);
+      } else {
+        if (yesCounter === questions.length) {
+          window.location.href = "game.html"; // Redirect to previous game
+        } else {
+          alert("Seems like you're not ready yet. 😭😭😭");
+          // Reset the game
+          questionIndex = 0;
+          yesCounter = 0;
+          displayQuestion(questionIndex);
+        }
+      }
+    }
+
+    function displayQuestion(index) {
+      const questionElement = document.getElementById('question');
+      questionElement.textContent = questions[index];
+    }
+    
+    // Display the first question initially
+    displayQuestion(questionIndex);
+  </script>
+</body>
+</html>

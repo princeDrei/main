@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 8th Monthsary, Rizza Mae!</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #fdcbf1; /* Light pink background */
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+
+        .greeting {
+            font-size: 3em;
+            text-align: center;
+            color: #e74c3c; /* Reddish pink */
+            text-shadow: 2px 2px 5px #ffc107; /* Light orange shadow */
+            animation: blink 1s infinite alternate;
+        }
+
+        @keyframes blink {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0.7;
+            }
+        }
+
+        .hearts {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .heart {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #e74c3c; /* Reddish pink */
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            width: 80%;
+            margin-top: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .image {
+            width: 200px;
+            height: 200px;
+            margin: 10px;
+            border-radius: 5px;
+        }
+
+        .shapes {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            overflow: hidden;
+        }
+
+        .shape {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #fdcbf1; /* Light pink */
+            animation: pop 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes pop {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hearts">
+            <span class="heart"></span>
+            <span class="heart"></span>
+            <span class="heart"></span>
+            </div>
+        <div class="images">
+            <img class="image" src="image1.jpg" alt="Image 1">
+            <img class="image" src="image2.jpg" alt="Image 2">
+            <img class="image" src="image3.jpg" alt="Image 3">
+        </div>
+    </div>
+</body>
+</html>
